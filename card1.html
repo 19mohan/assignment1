@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+canvas{
+             border: 10px solid black;
+             margin: auto;
+             display: block;
+             position: absolute;
+             top: auto;
+            left: auto;
+             right: auto;
+              bottom: auto;
+              width: 1000px;
+             height: 500px;
+            background-color: transparent;
+  }
+ 
+#item{
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+
+#fdob{
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+}
+
+.card {
+   
+  background: linear-gradient(50deg, rgb(0, 0, 0) 0%,rgb(7, 230, 255) 15%,rgb(8, 23, 27) 60%,rgba(0,1,19,1) 100%); 
+  border-radius: 4px;
+  height: 500px; 
+  width: 1000px;  
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); 
+  text-align: center;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  overflow: hidden;
+}
+  
+    </style>
+
+<body>
+    <canvas id="canvas" ></canvas>
+        <div class="card">
+            <div class="text" style="position: relative;">
+              <form action="/url" method="GET">
+                <input type="text" name="fname" id="item" style="color: rgb(0, 255, 34); font-size:large; text-align: center; "><br><br>
+                <!-- <input type="text" name="fname" id="fname" style="color: rgb(0, 255, 34); font-size:large; text-align: center; " placeholder="Enter date of birth" required><br><br> -->
+                  <label for="fb" style="color: rgb(255, 251, 0); text-align: center;"><h1>Happy Maha Shivaratri</h1></label>  
+                </form>
+                <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: large; color: rgb(255, 246, 246);"><i>Wishing a very Happy Shivratri to all my loved ones. <br>May there is peace, happiness, good fortune and good health to empower you.r</i></p>
+              <p class="muted" style="text-align: right; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: rgb(223, 93, 54);">by:Mohanavel K S</p>
+            </div>
+            <div class="space"></div>
+        </div>
+</body>
+<script>
+    var ctx=document.getElementsByTagName("canvas")[0].getContext("2d");
+    var ctx;
+    var canvas;
+    onload=function(){
+        canvas=document.getElementById("canvas");
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+        ctx=canvas.getContext("2d");
+        setInterval(animation,100);
+    };  
+    function animation(){
+        ctx.clearRect(100,1000,1500,1000);
+        var x=Math.round(Math.random()*1500);
+        var y=Math.round(Math.random()*1000);
+        var radius=Math.round(Math.random()*3);
+        var a=Math.random();
+        ctx.fillStyle="rgba("+255+","+255+","+255+","+255+")";
+        ctx.beginPath();
+        ctx.arc(x,y,radius,(Math.PI/180)*0,(Math.PI/180)*360,false);
+        ctx.fill(); //x,y,start radius, end radius,clock=false anticlockwise=true
+        ctx.closePath();
+        //ctx.stroke();
+
+
+
+        ctx.font="bold 30px ariel";
+        ctx.textAlign="center";
+            ctx.fillStyle= 'red';
+        ctx.fillText(getElementById("item"),150,85);
+        ctx.font="bold 40px ariel";
+        ctx.textAlign="center";
+            ctx.fillStyle= 'black';
+        ctx.fillText("mahindra",160,120);
+
+
+        function draw() {
+            var c = document.getElementById("card");
+            var ctx = c.getContext("2d");
+            ctx.strokeStyle = "orange";
+            ctx.lineWidth = 10;
+            ctx.strokeRect(125, 25, 960, 540);
+            ctx.fillStyle = "black";
+            ctx.textAlign = "start";
+            ctx.font = "22px Arial";
+            ctx.fillText(document.getElementById("name").value, 435, 55);
+            ctx.fillText(document.getElementById("greet").options[document.getElementById("greet").selectedIndex].text, 535, 95);
+
+
+            var redButton = document.getElementById("bgRed");
+            var blueButton = document.getElementById("bgBlue");
+
+            if (redButton.checked) {
+                //fill background red
+            } else if (blueButton.checked) {
+                //fill background blue
+            }
+
+            document.getElementById("div1").style.visibility = "hidden";
+            document.getElementById("div2").style.visibility = "hidden";
+        }
+        //bt.addEventListener("click",draw);   
+        window.onload=function(){
+          function draw(event) {
+              var canvas = document.getElementById("canvas");
+              var ctx = canvas.getContext("2d");
+              var text = document.getElementById('item').value
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              ctx.fillStyle = "#3e3e3e";
+              ctx.font = "16px Arial";
+              ctx.fillText(text, 500, 500);
+          }
+        window.addEventListener("keyup", draw, true);
+         }
+
+}
+
+</script>
+</html>
